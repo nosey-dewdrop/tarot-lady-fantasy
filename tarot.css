@@ -1,0 +1,59 @@
+body {
+    padding: 20px;
+    background-color: #dccb84;  /* Fıstık yeşili arka plan */
+    margin: 0;
+    font-family: fantasy, fantasy serif;
+    height: 100vh;
+    position: relative;
+}
+
+h1, h2 {
+    text-align: center;
+    position: absolute; /* Ekranda serbest hareket için */
+    z-index: 3; /* Menünün üstünde olacak şekilde ayarlandı */
+    /* color: #000000;  */
+    color: #89575b;
+    top: 10%; /* Sayfanın üst kısmında görünmesi için */
+    left: 50%; /* Ortalamak için */
+    transform: translate(-50%, 0); /* Yatay ortalama */
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between; /* Resimleri sağ ve sola yerleştirir */
+    align-items: center;
+    height: 100vh; /* Tüm ekran yüksekliğini kapsar */
+    padding: 20px;
+    position: relative;
+    z-index: 1; /* Resimler menünün altında */
+}
+
+.menu {
+    position: absolute; /* Menü ekranın istediğiniz yerinde konumlanır */
+    /* background-color:rgb(236,204,204);   */
+    background-color:#fcdcdc;
+    margin: 0 auto;
+    width: 630px; /* Menünün genişliği */
+    height: 90%; /* Menünün yüksekliği */
+    max-width: 630px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Gölge efekti */
+    top: 50%; /* Ortada hizalama */
+    left: 50%; /* Ortada hizalama */
+    transform: translate(-50%, -50%); /* Tam ekran ortasında konumlandırma */
+    z-index: 2; /* Resimlerin üstünde ama yazıların altında */
+}
+
+.fairy img, .frog img {
+    max-width: 380px; /* Resim boyutlarını ayarlar */
+    z-index: 1; /* Resimler menü ve yazıların altında */
+}
+
+footer {
+    text-align: center;
+    color: #89575b;
+    
+}
+
