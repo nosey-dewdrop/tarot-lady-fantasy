@@ -1,4 +1,5 @@
 ⋅˚₊‧ ୨୧ ‧₊˚ ⋅
+i think it turned out to be a website 
 1. learn GUI. 
 when a spread is done, it should be visible to the user.
 2. do not panic!!!!
