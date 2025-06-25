@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mystical Tarot Reader</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="stars" id="stars"></div>
+<div class="container">
+    <header class="header">
+        <h1 class="title">⋅˚₊‧ ୨୧ Mystical Tarot ୨୧ ‧₊˚⋅</h1>
+        <div class="theme-switcher">
+            <button class="theme-btn active" data-theme="default" onclick="switchTheme('default')">🌙</button>
+            <button class="theme-btn" data-theme="love" onclick="switchTheme('love')">💖</button>
+            <button class="theme-btn" data-theme="career" onclick="switchTheme('career')">⭐</button>
+        </div>
+        <button class="help-btn">
+            ?
+            <div class="help-tooltip">
+                Click cards from deck to select them → use "Read Cards" for interpretation → themes change colors and card meanings for love/career guidance.
+            </div>
+        </button>
+    </header>
+
+    <!-- Selected Cards Display Frame -->
+    <div class="frame-section">
+        <h3>🔮 Selected Cards</h3>
+        <div class="drawn-cards" id="drawnCards">
+            <p style="color: #a8a8a8; font-style: italic;">Select cards from deck...</p>
+        </div>
+    </div>
+
+    <!-- Yorum area'sı selected frame'in altında -->
+    <div class="interpretation-area" id="interpretationArea">
+        <div class="interpretation-content" id="interpretationContent"></div>
+    </div>
+
+    <div class="main-layout">
+        <div class="cards-area">
+            <h3 class="cards-title">Cards</h3>
+            <div class="card-info" id="cardInfo">
+                <span class="cards-remaining">Cards: <span id="cardsLeft">78</span></span>
+                <span class="selection-status" id="selectionStatus"></span>
+            </div>
+            <div class="deck-container-large">
+                <div class="deck-cards" id="deckCards"></div>
+            </div>
+            <div class="deck-actions">
+                <button class="deck-btn" onclick="shuffleDeck()">Shuffle Deck</button>
+                <button class="action-btn" id="readCardsBtn" onclick="interpretSelected()" disabled>Read Cards</button>
+                <button class="action-btn" onclick="randomReading()">Random Reading</button>
+                <button class="action-btn" onclick="returnCards()" style="display: none;" id="returnBtn">Return All Cards</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="status" id="status">
+        Welcome to Mystical Tarot! Choose a reading type to begin.
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
