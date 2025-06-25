@@ -1,5 +1,5 @@
 ⋅˚₊‧ ୨୧ ‧₊˚ ⋅
-i think it turned out to be a website with JS!!
+i think it turned out to be a website with JS!
 1. learn GUI. 
 when a spread is done, it should be visible to the user.
 2. do not panic!!!!

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mystical Tarot Reader</title>
+<style>
+/* Stil kodlarını burada tutmaya devam edebilirsin. Ancak sadeleştirme veya fazlalıkları temizleme yapılabilir. */
+</style>
+</head>
+<body>
+<div class="container">
+  <header class="header">
+    <h1 class="title">⋅˚₊‧ ୨୧ Mystical Tarot ୨୧ ‧₊˚⋅</h1>
+    <div class="theme-switcher">
+      <button class="theme-btn active" data-theme="default" onclick="switchTheme('default')">🌙</button>
+      <button class="theme-btn" data-theme="love" onclick="switchTheme('love')">💖</button>
+      <button class="theme-btn" data-theme="career" onclick="switchTheme('career')">⭐</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="deck-container">
+      <div id="deck"></div>
+      <button onclick="shuffleDeck()">Shuffle</button>
+    </section>
+
+    <section class="selection-actions">
+      <div id="selectedCards">Selected Cards:</div>
+      <button onclick="interpretSelected()">Interpret Selected</button>
+      <button onclick="randomReading()">Random Reading</button>
+      <button onclick="returnCards()">Return All</button>
+    </section>
+
+    <section id="readingSection">
+      <h2>Interpretation</h2>
+      <div id="readingDisplay"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p id="status">Welcome to Mystical Tarot!</p>
+  </footer>
+</div>
+
+<script>
+const tarotDeck = [
+  { name: "The Fool", group: "major" },
+  { name: "The Magician", group: "major" },
+  { name: "The High Priestess", group: "major" },
+];
+
+let currentDeck = [...tarotDeck];
+let selectedCards = [];
+let currentReading = [];
+
+function shuffleDeck() {
+  currentDeck = [...tarotDeck].sort(() => 0.5 - Math.random());
+  selectedCards = [];
+  renderDeck();
+  updateStatus("Deck shuffled ✨");
+}
+
+function renderDeck() {
+  const deckDiv = document.getElementById('deck');
+  deckDiv.innerHTML = '';
+  currentDeck.forEach((card, index) => {
+    const cardEl = document.createElement('div');
+    cardEl.textContent = '🃏';
+    cardEl.className = 'card';
+    cardEl.title = card.name;
+    cardEl.onclick = () => selectCard(index);
+    deckDiv.appendChild(cardEl);
+  });
+  updateSelectedDisplay();
+}
+
+function selectCard(index) {
+  if (selectedCards.includes(index)) return;
+  selectedCards.push(index);
+  updateSelectedDisplay();
+  updateStatus(`Selected ${currentDeck[index].name}`);
+}
+
+function updateSelectedDisplay() {
+  const container = document.getElementById('selectedCards');
+  container.innerHTML = 'Selected Cards: ' + selectedCards.map(i => currentDeck[i].name).join(', ');
+}
+
+function interpretSelected() {
+  if (selectedCards.length === 0) return updateStatus("Select cards first.");
+  currentReading = selectedCards.map(i => currentDeck[i]);
+  const display = document.getElementById('readingDisplay');
+  display.innerHTML = '';
+  currentReading.forEach(card => {
+    const p = document.createElement('p');
+    p.textContent = `${card.name}: [Insert interpretation here]`;
+    display.appendChild(p);
+  });
+  updateStatus("Interpretation ready 🔮");
+}
+
+function randomReading() {
+  shuffleDeck();
+  selectedCards = [0, 1, 2];
+  interpretSelected();
+}
+
+function returnCards() {
+  selectedCards = [];
+  currentReading = [];
+  updateSelectedDisplay();
+  document.getElementById('readingDisplay').innerHTML = '';
+  updateStatus("Cards returned to deck.");
+}
+
+function updateStatus(text) {
+  document.getElementById('status').textContent = text;
+}
+
+document.addEventListener('DOMContentLoaded', shuffleDeck);
+</script>
+</body>
+</html>
