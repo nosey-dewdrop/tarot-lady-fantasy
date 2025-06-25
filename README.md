@@ -1,5 +1,5 @@
 ⋅˚₊‧ ୨୧ ‧₊˚ ⋅
-i think it turned out to be a website with JS!
+i think it turned out to be a website with JS! java is cool but not fun. i can't make my friends play with it.
 1. learn GUI. 
 when a spread is done, it should be visible to the user.
 2. do not panic!!!!
